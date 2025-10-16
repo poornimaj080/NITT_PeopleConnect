@@ -1,0 +1,56 @@
+Project: NGDB_GRAPH_PROJECT (Neo4j + Node/Express backend, Vite React frontend)
+
+Prerequisites
+- Node.js 18+ and npm installed (check with: node -v, npm -v)
+- Neo4j 5.x/Enterprise or Aura instance available
+- Windows PowerShell (these commands are for PowerShell)
+
+1) Clone or open the project folder
+- Path used in examples: C:\Users\lenovo\Downloads\NGDB_GRAPH_DB\NGDB_GRAPH_PROJECT
+
+2) Configure environment variables (backend)
+- Create a file at: backend/.env
+- Put the following lines (replace placeholders with real values):
+  NEO4J_URI=bolt://localhost:7687
+  NEO4J_USERNAME=neo4j
+  NEO4J_PASSWORD=your_password
+  PORT=8000
+
+3) Install dependencies
+- Backend
+  cd backend
+  npm install
+  (Keep this terminal open for running.)
+
+- Frontend (open a new terminal in the project root)
+  cd frontend
+  npm install
+
+4) Run the apps (development)
+- Backend (from backend/)
+  npm run dev
+  Server runs at http://localhost:8000
+
+- Frontend (from frontend/, in a second terminal)
+  npm run dev
+  App runs at http://localhost:5173
+  The frontend proxies /api to http://localhost:8000 per frontend/vite.config.js
+
+5) API base paths
+- Public: GET http://localhost:8000/
+- Auth routes:     http://localhost:8000/api/auth
+- Services routes: http://localhost:8000/api/services
+- Doubts routes:   http://localhost:8000/api/doubts
+
+6) Build frontend (optional for production)
+- From frontend/
+  npm run build
+  (Serves static build via your chosen host; backend in this project does not serve the built assets.)
+
+Troubleshooting
+- ECONNREFUSED / DB connection errors: Verify backend/.env values match your Neo4j instance and that the DB is running.
+- CORS errors: The backend allows origin http://localhost:5173 by default (see backend/src/server.js). Adjust if you use a different port or host.
+- Port in use: Change PORT in backend/.env and update frontend/vite.config.js proxy target accordingly.
+
+
+--- End of INSTRUCTIONS ---

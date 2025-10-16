@@ -1,0 +1,30 @@
+# Normalize text files and enforce LF in the repo
+* text=auto eol=lf
+
+# Common text files
+*.js  text eol=lf
+*.jsx text eol=lf
+*.ts  text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.md  text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.cypher text eol=lf
+
+# Shell and scripts
+*.sh  text eol=lf
+*.ps1 text eol=crlf
+
+# Batch files keep CRLF
+*.bat text eol=crlf
+
+# Keep images/binaries as-is
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
